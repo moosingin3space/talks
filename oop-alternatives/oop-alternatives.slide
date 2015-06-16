@@ -12,7 +12,8 @@ https://moosingin3space.github.io
 
 - Shared, mutable state
 - End of the Moore's Law "free lunch"
-- Writing lots and lots of tests
+- Managing complexity
+- Too much code
 
 * What is OOP good for?
 
@@ -22,14 +23,75 @@ https://moosingin3space.github.io
 - Re-use of large modules of code
 - Maintenance
 
+* What is OOP associated with?
+
+- Static typing
+- User Interfaces and Game Engines
+
 * Encapsulation
 
 OOP: Private variables and functions
 
 .code private-data-example.java
 
+* Defeated by
+
+Threading! There is no protection from unanticpated re-ordering of updates
+due to non-deterministic multicore thred execution!
+
+.code threading-breaks-encapsulation.java
+
 * Encapsulation
 
-Preferred alternative: Modules
+Alternative: Modules
 
 .code modules-example.go
+
+Note that there's no mutable state at the module level.
+
+* Polymorphism
+
+OOP: Classes
+
+.code classes-example.java
+
+* Defeated by
+
+Inflexibility and high ceremony.
+
+.code classes-are-inflexible.java
+
+* Polymorphism
+
+Alternative: Dynamic Typing
+
+.code dynamic-typing.js
+
+Very low-ceremony, but requires a lot of testing to verify that it works!
+We can do better...
+
+* Polymorphism
+
+Alternative: Typeclasses
+
+.code typeclasses-example.hs
+
+Less ceremony and slightly more malleable, but retains the compiler's ability
+to check for bugs.
+
+* Polymorphism
+
+Alternative: Multiple dispatch
+
+.code multimethods-example.clj
+
+Powerful way to switch on type or another attribute.
+
+* Polymorphism
+
+Alternative: Separation of data and functions, combined with structural
+sub-typing
+
+.code interfaces-example.go
+
+Very low ceremony and malleable.
