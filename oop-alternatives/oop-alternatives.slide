@@ -1,0 +1,35 @@
+I Object!
+Alternatives to the popular Object-Oriented Programming paradigm
+25 Jun 2015
+
+Nathan Moos
+Backend Rockstar Engineer, Stratos
+moosnat@umich.edu
+https://moosingin3space.github.io
+@moosingin3space
+
+* Programming problems, in general
+
+- Shared, mutable state
+- End of the Moore's Law "free lunch"
+- Writing lots and lots of tests
+
+* What is OOP good for?
+
+- Data hiding or encapsulation
+- Polymorphism or the reuse of functions in different contexts
+- Abstraction
+- Re-use of large modules of code
+- Maintenance
+
+* Encapsulation
+
+OOP: Private variables and functions
+
+.code private-data-example.java
+
+* Encapsulation
+
+Preferred alternative: Modules
+
+.code modules-example.go
