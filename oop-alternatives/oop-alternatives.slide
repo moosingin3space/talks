@@ -20,7 +20,6 @@ https://moosingin3space.github.io
 - Data hiding or encapsulation
 - Polymorphism or the reuse of functions in different contexts
 - Abstraction
-- Re-use of large modules of code
 - Maintenance
 
 * What is OOP associated with?
@@ -95,3 +94,32 @@ sub-typing
 .code interfaces-example.go
 
 Very low ceremony and malleable.
+
+* Abstraction
+
+Alternative: FP concepts
+
+.code monads-example.hs
+
+Notice how the _monadic chain_ operator (`>>=`) could be used in vastly
+different situations. Functional programming enables more elegant abstractions.
+
+* Maintenance
+
+Complexity damns you twice: it takes more effort to understand complex code,
+and it needs more maintenance.
+
+OOP tends to have high ceremony: see classes, dependency injection, etc.
+
+* Notes on Typing
+
+* User Interface and Game Engines
+
+Alan Kay, inventor of OOP, believed it would lay the foundation for an elegant
+user interface.
+
+OOP user interfaces require components to maintain state, _independent_ of the
+application state. Usually, this is unnecessary duplication
+
+In FRP, components are just functions that take all data needed to generate the
+representation. No state outside of the app state.
