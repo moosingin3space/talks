@@ -3,7 +3,6 @@ Alternatives to the popular Object-Oriented Programming paradigm
 25 Jun 2015
 
 Nathan Moos
-Backend Rockstar Engineer, Stratos
 moosnat@umich.edu
 https://moosingin3space.github.io
 @moosingin3space
@@ -101,7 +100,7 @@ Alternative: FP concepts
 
 .code monads-example.hs
 
-Notice how the _monadic chain_ operator (`>>=`) could be used in vastly
+Notice how the _monadic_ _chain_ operator (`>>=`) could be used in vastly
 different situations. Functional programming enables more elegant abstractions.
 
 * Maintenance
@@ -123,3 +122,50 @@ application state. Usually, this is unnecessary duplication
 
 In FRP, components are just functions that take all data needed to generate the
 representation. No state outside of the app state.
+
+* What if we don't have a choice?
+
+* Web frontend: JavaScript
+
+- Module pattern (Browserify, Require.js)
+- Dynamic polymorphism
+- Underscore or Lodash
+- Promises
+- FRP (React.js, Mercury)
+
+* Web frontend: compile-to-JavaScript
+
+- TypeScript: structural sub-typing with its `interface` types
+- PureScript: Haskell written in JavaScript
+- ClojureScript: Clojure compiled to JavaScript
+- Elm: Haskell-style code, FRP, complete abstraction over DOM
+- GHCJS/Haste: Haskell compiled to JavaScript
+
+* Android frontend
+
+- *Always* write user interfaces in Java, unless it's a game!
+- Java 8/Retrolambda
+- RxJava
+- Scaloid
+- Clojure-Android
+- Haskell-JNI
+
+* iOS frontend
+
+- Swift
+- RxSwift
+- Functional operators in Swift
+
+* Always applicable
+
+- Prefer functions to classes
+- Classes (or namespaces) as modules
+- Immutability
+- Document side effects _clearly_
+- Procedural code with a module system
+
+* Why do we care?
+
+- We want code that we can quickly iterate on
+- We want code that is clear in its intent
+- We want code that doesn't punish us for taking breaks
