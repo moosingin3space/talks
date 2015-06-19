@@ -10,7 +10,7 @@ https://moosingin3space.github.io
 * Programming problems, in general
 
 - Shared, mutable state
-- End of the Moore's Law "free lunch"
+- End of the Moore's Law "free lunch", but added complexity involved in parallelism
 - Managing complexity
 - Too much code
 
@@ -35,13 +35,13 @@ OOP: Private variables and functions
 * Defeated by
 
 Threading! There is no protection from unanticpated re-ordering of updates
-due to non-deterministic multicore thred execution!
+due to non-deterministic multicore thread execution!
 
 .code threading-breaks-encapsulation.java
 
 * Encapsulation
 
-Alternative: Modules
+Alternative: Modules and pure functions
 
 .code modules-example.go
 
@@ -52,6 +52,14 @@ Note that there's no mutable state at the module level.
 OOP: Classes
 
 .code classes-example.java
+
+* Introducing an example
+
+_JSON_ is popular today, so I will implement a simple library where structures
+explain how I encode them as proper JSON.
+
+- A _literal_ is either "a string" or a number `0`
+
 
 * Defeated by
 
