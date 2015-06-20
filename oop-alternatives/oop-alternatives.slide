@@ -138,7 +138,7 @@ Alan Kay, inventor of OOP, believed it would lay the foundation for an elegant
 user interface.
 
 OOP user interfaces require components to maintain state, _independent_ of the
-application state. Usually, this is unnecessary duplication
+application state. Usually, this is unnecessary duplication.
 
 In FRP, components are just functions that take all data needed to generate the
 representation. No state outside of the app state.
