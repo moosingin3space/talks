@@ -75,7 +75,7 @@ We can do better...
 
 * Polymorphism
 
-Alternative: Typeclasses
+Alternative: Algebraic Data Types
 
 .code typeclasses-example.hs
 
