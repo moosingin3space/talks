@@ -1,14 +1,11 @@
--- Start by defining
-data JSON = Object | Array | Literal
+data (Num a) => Price a = Buy a | Sell a
 
-class HowToEncodeJSON a where
-    howto :: a -> JSON
+adjustPrice :: (Num a) => Price a -> a -> Price a
+adjustPrice (Sell _) newPrice = Sell newPrice
 
-instance HowToEncodeJSON [] where
-    howto = Array
+getPrice :: (Num a) => Price a -> a
+getPrice (Sell p) = p
+getPrice (Buy p) = p
 
-instance HowToEncodeJSON String where
-    howto = Literal
-
-instance HowToEncodeJSON Vector where
-    howto = Array
+-- To use it
+adjustPrice (getMarketPrice "good-A") 5.00 -- adjustPrice is only defined for Sell

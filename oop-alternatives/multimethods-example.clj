@@ -1,14 +1,14 @@
-;; Simple example
-(defmulti type-of-json class)
+;; Start by defining tags
+(derive ::buy-price ::price)
+(derive ::sell-price ::price)
 
-(defmethod type-of-json Keyword
-  :literal)
+(defmulti adjust-price (fn [tag & rest] tag))
 
-(defmethod type-of-json Vector
-  :array)
+(defmethod adjust-price ::sell-price [tag value new-value]
+  [::sell-price new-value])
 
-;; If I want to add something later:
+(defmethod get-price ::price [tag value]
+  value)
 
-(deftype my-type)
-(defmethod type-of-json my-type
-  :object)
+;; To use it
+(adjust-price (get-market-price "good-A") 5.00)

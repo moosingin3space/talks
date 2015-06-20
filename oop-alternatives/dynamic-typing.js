@@ -1,11 +1,22 @@
-// This is infinitely flexible
-var encodeJSON = function(object) {
-    if (object.howTo() == 'object') {
-        ...
-    }
-    ...
+var SellPrice = function(p) {
+    var price = p;
+    return {
+        adjustPrice: function(p) {
+            price = p;
+        },
+        getPrice: function() {
+            return price;
+        }
+    };
 };
 
-// If I want something JSON-encodable, I just do
-var object = ...;
-object.howTo = function() { return 'object'; }
+var BuyPrice = function(p) {
+    return {
+        getPrice: function() {
+            return p;
+        }
+    };
+};
+
+var p = getMarketPrice("good-A");
+p.adjustPrice(5.00); // Will throw a ReferenceError if p is a BuyPrice

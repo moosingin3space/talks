@@ -1,16 +1,18 @@
-enum EncodingMethod { Object, Array, Literal };
+class Price {
+    private double price;
 
-interface JSONEncodable {
-    EncodingMethod howTo();
+    public void adjustPrice(double p);
+    public double getPrice();
 }
 
-// I can't call howTo on any currently existing class! Instead, I write a LOT
-// of highly repetitive code like:
-
-class JSONObject implements JSONEncodable {
-    public EncodingMethod howTo() {
-        return EncodingMethod.Object;
-    }
+class SellPrice extends Price {
+    // Sellers set prices, so this definition makes sense
 }
 
-// and so on
+class BuyPrice extends Price {
+    // Buyers can't directly adjust prices!
+}
+
+// to use these
+Price p = Market.getPrice("good-A");
+p.adjustPrice(5.00); // Shouldn't be able to do this if p is a BuyPrice!

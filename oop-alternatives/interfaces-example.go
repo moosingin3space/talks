@@ -1,18 +1,20 @@
-type JSONType
-const ( Object JSONType = iota, Array, Literal )
+type HasPrice interface {
+	GetPrice() float64
+}
+type AdjustablePrice interface {
+	AdjustPrice(val float64)
+}
+type Price struct {
+	price float64
+}
+type SellPrice Price
+type BuyPrice Price
 
-type JSONEncodable interface {
-	HowTo() JSONType
+func (p Price) GetPrice() float64 {
+	return p.price
+}
+func (p SellPrice) AdjustPrice(val float64) {
+	p.price = val
 }
 
-func (s string) HowTo() JSONType {
-	return Literal
-}
-
-// To make new types JSON-encodable
-
-type MyType struct { ... }
-
-func (m MyType) HowTo() JSONType {
-	return Object
-}
+market.GetPrice("good-A").AdjustPrice(5.00) // not applicable if GetPrice returns a BuyPrice

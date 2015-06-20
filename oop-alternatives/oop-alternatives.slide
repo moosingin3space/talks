@@ -53,13 +53,10 @@ OOP: Classes
 
 .code classes-example.java
 
-* Introducing an example
+* An example
 
-_JSON_ is popular today, so I will implement a simple library where structures
-explain how I encode them as proper JSON.
-
-- A _literal_ is either "a string" or a number `0`
-
+A sell price is a price. So is a buy price. A price is a number. This suggests
+inheritance. Can I model this with sub-classing?
 
 * Defeated by
 
@@ -95,12 +92,11 @@ Powerful way to switch on type or another attribute.
 
 * Polymorphism
 
-Alternative: Separation of data and functions, combined with structural
-sub-typing
+Alternative: Separation of data and functions, structural sub-typing
 
 .code interfaces-example.go
 
-Very low ceremony and malleable.
+Low-ceremony and malleable.
 
 * Abstraction
 
@@ -108,8 +104,8 @@ Alternative: FP concepts
 
 .code map-reduce-example.hs
 
-Notice how the _monadic_ _chain_ operator (`>>=`) could be used in vastly
-different situations. Functional programming enables more elegant abstractions.
+Notice how maps and folds can be used to perform all of these similar
+operations.
 
 * Maintenance
 
@@ -117,6 +113,22 @@ Complexity damns you twice: it takes more effort to understand complex code,
 and it needs more maintenance.
 
 OOP tends to have high ceremony: see classes, dependency injection, etc.
+
+* Parallellism
+
+OOP: Locking
+
+.code locking-example.java
+
+Not only is this an increase in ceremony, but it also performs badly.
+
+* Parallellism
+
+Alternative: Software-transactional memory
+
+.code stm-example.clj
+
+STM enables global state to be modified safely.
 
 * Notes on Typing
 
