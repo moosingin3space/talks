@@ -106,7 +106,7 @@ Very low ceremony and malleable.
 
 Alternative: FP concepts
 
-.code monads-example.hs
+.code map-reduce-example.hs
 
 Notice how the _monadic_ _chain_ operator (`>>=`) could be used in vastly
 different situations. Functional programming enables more elegant abstractions.
