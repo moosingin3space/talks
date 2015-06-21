@@ -7,14 +7,24 @@ moosnat@umich.edu
 https://moosingin3space.github.io
 @moosingin3space
 
+* Disclaimer
+
+I will be using a lot of languages!
+
+- Java
+- Go
+- Clojure
+- Haskell
+- JavaScript
+
 * Programming problems, in general
 
 - Shared, mutable state
 - End of the Moore's Law "free lunch", but added complexity involved in parallelism
 - Managing complexity
-- Too much code
+- High-ceremony code
 
-* What is OOP good for?
+* What is OOP good for? (What the Internet says)
 
 - Data hiding or encapsulation
 - Polymorphism or the reuse of functions in different contexts
@@ -24,24 +34,22 @@ https://moosingin3space.github.io
 * What is OOP associated with?
 
 - Static typing
-- User Interfaces and Game Engines
+- User Interfaces 
+- Game Engines
 
 * Encapsulation
 
 OOP: Private variables and functions
-
-.code private-data-example.java
-
-* Defeated by
-
-Threading! There is no protection from unanticpated re-ordering of updates
-due to non-deterministic multicore thread execution!
+Problems arise with threading! There is no protection from unanticpated
+re-ordering of updates due to non-deterministic multicore thread execution!
+(Java)
 
 .code threading-breaks-encapsulation.java
 
 * Encapsulation
 
 Alternative: Modules and pure functions
+(Go)
 
 .code modules-example.go
 
@@ -50,32 +58,26 @@ Note that there's no mutable state at the module level.
 * Polymorphism
 
 OOP: Classes
-
-.code classes-example.java
-
-* An example
-
-A sell price is a price. So is a buy price. A price is a number. This suggests
-inheritance. Can I model this with sub-classing?
+Example: A sell price is a price. So is a buy price. A price is a number. This
+suggests inheritance. Can I model this with sub-classing?
 
 * Defeated by
 
 Inflexibility and high ceremony.
+(Java)
 
 .code classes-are-inflexible.java
 
 * Polymorphism
 
-Alternative: Dynamic Typing
+Alternative: Dynamic Typing (JavaScript)
 
 .code dynamic-typing.js
-
-Very low-ceremony, but requires a lot of testing to verify that it works!
-We can do better...
 
 * Polymorphism
 
 Alternative: Algebraic Data Types
+(Haskell)
 
 .code typeclasses-example.hs
 
@@ -85,6 +87,7 @@ to check for bugs.
 * Polymorphism
 
 Alternative: Multiple dispatch
+(Clojure)
 
 .code multimethods-example.clj
 
@@ -92,7 +95,7 @@ Powerful way to switch on type or another attribute.
 
 * Polymorphism
 
-Alternative: Separation of data and functions, structural sub-typing
+Alternative: Separation of data and functions, structural sub-typing (Go)
 
 .code interfaces-example.go
 
@@ -100,7 +103,15 @@ Low-ceremony and malleable.
 
 * Abstraction
 
+(Java)
+
+.code map-reduce-with-arrays.java
+
+* Abstraction
+
 Alternative: FP concepts
+
+(Haskell)
 
 .code map-reduce-example.hs
 
@@ -117,6 +128,7 @@ OOP tends to have high ceremony: see classes, dependency injection, etc.
 * Parallellism
 
 OOP: Locking
+(Java)
 
 .code locking-example.java
 
@@ -125,12 +137,21 @@ Not only is this an increase in ceremony, but it also performs badly.
 * Parallellism
 
 Alternative: Software-transactional memory
+(Clojure)
 
 .code stm-example.clj
 
 STM enables global state to be modified safely.
 
-* Notes on Typing
+* Typing
+
+In general, any programming paradigm can work with any typing system. However,
+the inflexibility of OOP's polymorphism restricts the most powerful static
+typing systems to non-OOP languages.
+
+By contrast
+- Erlang and Clojure have dynamic typing systems
+- Haskell, Scala, and OCaml have static typing systems
 
 * User Interface and Game Engines
 
@@ -143,6 +164,12 @@ application state. Usually, this is unnecessary duplication.
 In FRP, components are just functions that take all data needed to generate the
 representation. No state outside of the app state.
 
+* FRP Loop Diagram
+
+.image https://raw.githubusercontent.com/facebook/flux/master/docs/img/flux-diagram-white-background.png 429 858
+
+Note the one-way flow of data.
+
 * What if we don't have a choice?
 
 * Web frontend: JavaScript
@@ -150,7 +177,6 @@ representation. No state outside of the app state.
 - Module pattern (Browserify, Require.js)
 - Dynamic polymorphism
 - Underscore or Lodash
-- Promises
 - FRP (React.js, Mercury)
 
 * Web frontend: compile-to-JavaScript
@@ -159,22 +185,6 @@ representation. No state outside of the app state.
 - PureScript: Haskell written in JavaScript
 - ClojureScript: Clojure compiled to JavaScript
 - Elm: Haskell-style code, FRP, complete abstraction over DOM
-- GHCJS/Haste: Haskell compiled to JavaScript
-
-* Android frontend
-
-- *Always* write user interfaces in Java, unless it's a game!
-- Java 8/Retrolambda
-- RxJava
-- Scaloid
-- Clojure-Android
-- Haskell-JNI
-
-* iOS frontend
-
-- Swift
-- RxSwift
-- Functional operators in Swift
 
 * Always applicable
 
